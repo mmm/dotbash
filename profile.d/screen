@@ -1,0 +1,7 @@
+
+if [ $TERM = "screen" ]; then
+  export PS1="\h($WINDOW):\w \\$ "
+else
+  export PS1="\h:\w \\$ "
+fi
+

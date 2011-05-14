@@ -1,0 +1,5 @@
+
+if [ -f ~/.euca-ttu/eucarc ]; then
+  . ~/.euca-ttu/eucarc
+fi
+

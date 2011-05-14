@@ -1,0 +1,10 @@
+
+shell -$SHELL
+
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+screen -t gmail         1 mutt -F ~/.mutt/muttrc.gmail
+screen -t agiledynamics 2 mutt -F ~/.mutt/muttrc.agiledynamics
+screen -t archethought  3 mutt -F ~/.mutt/muttrc.archethought
+
