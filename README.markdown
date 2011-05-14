@@ -1,10 +1,15 @@
 
 interactive stuff goes in
-profile
-profile.d
+
+- profile
+- profile.d
+
 
 non-interactive stuff goes in
-bashrc
-bashrc.d
+
+- bashrc
+- bashrc.d
+
 
 bashrc gets included in profile
+
