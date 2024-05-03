@@ -1,5 +1,5 @@
 
-interactive stuff goes in
+interactive "login shell" stuff goes in
 
 - profile
 - profile.d

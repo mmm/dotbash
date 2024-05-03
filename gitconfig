@@ -1,0 +1,21 @@
+[user]
+	name = Mark Mims
+	email = mark.mims@gmail.com
+[core]
+	excludesfile = ~/.gitexcludes
+[init]
+	templatedir = ~/.git_template
+	defaultBranch = main
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	vd = difftool
+	root = rev-parse --show-toplevel
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
