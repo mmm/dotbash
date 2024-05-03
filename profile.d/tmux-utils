@@ -1,0 +1,22 @@
+
+__tmux_find_session_like() {
+  local requested_session=$1
+  tmux list-sessions | sed -E 's/:.*$//' | fzf --filter=$requested_session --no-sort
+}
+
+__tmux_create_or_attach_to() {
+  local requested_session=$1
+
+  local session_name=$(__tmux_find_session_like $requested_session)
+  [ -n "$session_name" ] \
+    && tmux attach-session -t $session_name \
+    || tmux new-session -s $requested_session
+}
+
+t() {
+  local session=$1
+
+  [ -n "$session" ] \
+    && __tmux_create_or_attach_to $session \
+    || tmux ls
+}

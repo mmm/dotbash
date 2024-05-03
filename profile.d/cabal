@@ -1,0 +1,3 @@
+
+[ -d ~/.cabal ] && export PATH=~/.cabal/bin:$PATH
+

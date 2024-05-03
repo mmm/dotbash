@@ -1,0 +1,4 @@
+
+#[ -z $DISPLAY ] || xmodmap ~/.Xmodmap
+
+#pgrep xcape || /usr/bin/xcape -e "Alt_L=Tab"

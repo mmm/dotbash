@@ -1,0 +1,9 @@
+#
+#export SHOW_JUJU_PS1=true
+#
+#__juju_ps1() {
+#  [ -n "$JUJU_ENV" ] && [ -n "$SHOW_JUJU_PS1" ] && printf " ($JUJU_ENV)"
+#}
+#
+#export PS1="$PS1\$(__juju_ps1)"
+#export PS1="$PS1\[\033[01;32m\]\$(__juju_ps1)\[\033[00m\]"

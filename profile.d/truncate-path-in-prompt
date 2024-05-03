@@ -1,0 +1,5 @@
+
+
+# shorter path length in the prompt
+export PROMPT_DIRTRIM=3
+

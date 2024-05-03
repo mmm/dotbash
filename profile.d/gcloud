@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google/google-cloud-sdk/path.bash.inc' ]; then source '/opt/google/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google/google-cloud-sdk/completion.bash.inc' ]; then source '/opt/google/google-cloud-sdk/completion.bash.inc'; fi
+
+#######
+## prompt stuff
+
+__gcp_project() {
+  project=$(gcloud config list core/project --format json | jq '.core.project' -r)
+  [[ -n "$project" ]] && printf " (%s)" "${project}"
+}
+
+__gcp_configuration() {
+  active_config="$HOME/.config/gcloud/active_config"
+  [[ -f "$active_config" ]] && printf " (%s)" "$(cat "$active_config")"
+}
+
+export PS1="$PS1\[\033[01;33m\]\$(__gcp_configuration)\[\033[00m\]"
+#######
+
+#######
+## gconf stuff
+__gconf_find_configuration_like() {
+  local requested_configuration=$1
+  gcloud config configurations list --format json | jq '.[]|.name' -r | fzf --filter="$requested_configuration" --no-sort | head -1
+}
+
+__gconf_activate() {
+  local requested_configuration=$1
+
+  local configuration_name=$(__gconf_find_configuration_like $requested_configuration)
+  [ -n "$configuration_name" ] \
+    && gcloud config configurations activate "$configuration_name" \
+    || echo "no such configuration: ${configuration_name}"
+}
+
+gconf() {
+  local configuration=$1
+
+  [ -n "$configuration" ] \
+    && __gconf_activate "$configuration" \
+    || gcloud config configurations list
+}
+#######
+
