@@ -14,7 +14,7 @@ fi
 [ -z "$PS1" ] && return
 
 # prompt leader
-export PS1="\[\e]0;\h: \w\a\]\[\033[01;32m\]\h\[\033[00m\]:\w"
+export PS1="\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\h\[\033[00m\]:\w"
 
 if [ -d $HOME/.bash/profile.d ]; then
   for i in $HOME/.bash/profile.d/*; do
